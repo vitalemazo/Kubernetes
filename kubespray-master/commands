@@ -21,6 +21,11 @@ vi inventory/mycluster/group_vars/k8s-cluster/k8s-cluster.yml
 
 vi inventory/mycluster/group_vars/k8s_cluster/addons.yml
 
+vi inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+
+nano inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
+
+
 ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml
 
 
@@ -30,4 +35,13 @@ ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root 
 
 
 sudo su -
+
+kubectl get pod --all-namespaces -o wide
+kubectl describe pod nginx-proxy-k8s-3 -n kube-system
+
 kubectl get nodes
+kubectl describe node k8s-1
+
+
+#gets you: "nodeName namespace pod" across the cluster
+kubectl get pods --all-namespaces --output 'jsonpath={range .items[*]}{.spec.nodeName}{" "}{.metadata.namespace}{" "}{.metadata.name}{"\n"}{end}'
