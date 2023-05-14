@@ -387,7 +387,7 @@ k8s_image_pull_policy: IfNotPresent
 
 # Kubernetes dashboard
 # RBAC required. see docs/getting-started.md for access details.
-dashboard_enabled: false
+dashboard_enabled: true
 
 # Addons which can be enabled
 helm_enabled: false
@@ -405,7 +405,7 @@ gcp_pd_csi_enabled: false
 vsphere_csi_enabled: false
 upcloud_csi_enabled: false
 csi_snapshot_controller_enabled: false
-persistent_volumes_enabled: false
+persistent_volumes_enabled: true
 cephfs_provisioner_enabled: false
 rbd_provisioner_enabled: false
 ingress_nginx_enabled: false
