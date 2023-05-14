@@ -1,3 +1,26 @@
+
+sudo apt install python3.11-venvy
+sudo python3 -m venv myenv
+source myenv/bin/activate
+pip install -r requirements.txt
+
+git config --global user.name "Vitale Mazo"
+git config --global user.email vitalemazo@gmail.
+
+ git config --list --show-origin
+
+
+
+
+
+
+sudo apt update
+
+sudo apt install git python3 python3-pip kube-system
+git clone https://github.com/kubernetes-incubator/kubespray.git
+pip install -r requirements.txtpip3 --version
+
+
 vagrant up
 
 vagrant provision
