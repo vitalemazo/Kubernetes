@@ -49,7 +49,7 @@ ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root 
 ```
 
 Note: When Ansible is already installed via system packages on the control node,
-Python packages installed via `sudo pip install -r requirements.txt` will go to
+Python packages installed via `sudo pip install requirements.txt` will go to
 a different directory tree (e.g. `/usr/local/lib/python2.7/dist-packages` on
 Ubuntu) from Ansible's (e.g. `/usr/lib/python2.7/dist-packages/ansible` still on
 Ubuntu). As a consequence, the `ansible-playbook` command will fail with:
