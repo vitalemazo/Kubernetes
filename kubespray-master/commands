@@ -29,7 +29,7 @@ nano inventory/mycluster/group_vars/k8s_cluster/k8s-cluster.yml
 ansible-playbook -i inventory/mycluster/hosts.yml --become --become-user=root cluster.yml
 
 
-ansible-playbook inventory/mycluster/
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root scale.yml
 
 ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
 
@@ -42,6 +42,16 @@ kubectl describe pod nginx-proxy-k8s-3 -n kube-system
 kubectl get nodes
 kubectl describe node k8s-1
 
+kubectl get pods --all-namespaces | grep prometheus
+helm install prometheus stable/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2",server.persistentVolume.storageClass="gp2"
 
 #gets you: "nodeName namespace pod" across the cluster
 kubectl get pods --all-namespaces --output 'jsonpath={range .items[*]}{.spec.nodeName}{" "}{.metadata.namespace}{" "}{.metadata.name}{"\n"}{end}'
+
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+
+kubectl get pv
+kubectl get pvc --all-namespaces
+kubectl get storageclasses
