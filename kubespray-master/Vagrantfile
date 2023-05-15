@@ -45,7 +45,7 @@ if File.exist?(CONFIG)
 end
 
 # Defaults for config options defined in CONFIG
-$num_instances ||= 5
+$num_instances ||= 7
 $instance_name_prefix ||= "k8s"
 $vm_gui ||= false
 $vm_memory ||= 2048
@@ -61,7 +61,7 @@ $multi_networking ||= "False"
 $download_run_once ||= "True"
 $download_force_cache ||= "False"
 # The first three nodes are etcd servers
-$etcd_instances ||= [$num_instances, 3].min
+$etcd_instances ||= [$num_instances, 5].min
 # The first two nodes are kube masters
 $kube_master_instances ||= [$num_instances, 2].min
 # All nodes are kube nodes
