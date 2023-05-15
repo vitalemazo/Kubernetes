@@ -1,3 +1,29 @@
+
+git config --global user.name "Vitale Mazo"
+git config --global user.email vitalemazo@gmail.
+
+sudo apt install python3.11-venvy
+sudo python3 -m venv myenv
+source myenv/bin/activate
+pip install -r requirements.txt
+
+#do this inside the virtual Pythong env
+vagrant up
+
+
+
+ git config --list --show-origin
+
+
+
+
+
+
+sudo apt update
+
+sudo apt install git python3 python3-pip kube-system
+git clone https://github.com/kubernetes-incubator/kubespray.git
+
 vagrant up
 
 vagrant provision
@@ -56,10 +82,23 @@ kubectl get pv
 kubectl get pvc --all-namespaces
 kubectl get storageclasses
 
-kubectl config current-context
-kubectl config get-contexts
+sudo kubectl config current-context
+sudo kubectl config get-contexts
 
-kubectl config view --raw
+sudo kubectl config view --raw
+
+#make local Dir on your host copy the config from host then change the IP address to Node IP
+mkdir -p ~/.kube
+touch ~/.kube/config
+vi ~/.kube/config
+
+
+cat ~/.kube/config
+
+cat ~/.kube/config | xclip -selection clipboard
+cat ~/.kube/config | xclip -selection clipboard
+
+
 
 kubectl config view
 
