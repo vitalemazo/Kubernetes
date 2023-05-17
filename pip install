@@ -1,0 +1,41 @@
+allow the use of `sudo pip3 install` to install packages system-wide. This is a good practice to avoid conflicts between system and user-installed packages.
+
+use a Python virtual environment, which is a self-contained environment that won't interfere with your system-wide Python settings. Here's how to do it:
+
+1. First, ensure that you have the `venv` module installed. If it's not installed, you can install it with the following command:
+
+    ```bash
+    sudo apt install python3-venv
+    ```
+
+2. Next, navigate to the directory where you want to create the virtual environment and create it with this command:
+
+    ```bash
+    python3 -m venv myenv
+    ```
+
+    This will create a new directory called `myenv` in your current directory, which will contain the virtual environment.
+
+3. Activate the virtual environment with this command:
+
+    ```bash
+    source myenv/bin/activate
+    ```
+
+    Your prompt should change to indicate that you're now operating within the virtual environment.
+
+4. Now, you should be able to install the packages with `pip` without using `sudo`:
+
+    ```bash
+    pip install ansible==5.7.1 ansible-core==2.12.5 cryptography==3.4.8 jinja2==3.1.2 jmespath==1.0.1 MarkupSafe==2.1.2 netaddr==0.8.0 pbr==5.11.1 ruamel.yaml==0.17.21 ruamel.yaml.clib==0.2.7
+    ```
+
+5. When you're done working in the virtual environment, you can deactivate it with this command:
+
+    ```bash
+    deactivate
+    ```
+
+Please replace `myenv` with the name you want to use for your virtual environment.
+
+Remember that you'll need to activate the virtual environment every time you open a new terminal session and want to use these packages.
