@@ -2,13 +2,46 @@
 git config --global user.name "Vitale Mazo"
 git config --global user.email vitalemazo@gmail.
 
+sudo apt update
+sudo apt install python3 python3-pip
+
+
+
+sudo pip3 install ansible==5.7.1 ansible-core==2.12.5 cryptography==3.4.8 jinja2==3.1.2 jmespath==1.0.1 MarkupSafe==2.1.2 netaddr==0.8.0 pbr==5.11.1 ruamel.yaml==0.17.21 ruamel.yaml.clib==0.2.7
+
+
+#Change ownership of the directory: If you're sure that the directory in question should be writable by your user, you can change its ownership using the chown command. Replace username with your actual username:
+sudo chown -R username /home/ghost/Documents/Kubernetes/kubespray-master/myenv/
+
+
+
 sudo apt install python3.11-venvy
-sudo python3 -m venv myenv
+sudo python3 -m venv my
 source myenv/bin/activate
 pip install -r requirements.txt
 
 #do this inside the virtual Pythong env
 vagrant up
+vagrant provision
+vagrant up --provider=virtualbox
+
+
+sudo rm -rf /Applications/Vagrant
+sudo rm -f /usr/local/bin/vagrant
+sudo rm -rf ~/.vagrant.d
+
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install vagrant
+
+
+
+
+
+
+
+
+
 
 
 
