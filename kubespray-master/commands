@@ -16,8 +16,11 @@ sudo chown -R username /home/ghost/Documents/Kubernetes/kubespray-master/myenv/
 
 
 sudo apt install python3.11-venvy
-sudo python3 -m venv my
-source myenv/bin/activate
+sudo python3 -m venv k8svirtual
+source k8svirtual/bin/activate
+
+
+
 pip install -r requirements.txt
 
 #do this inside the virtual Pythong env
@@ -93,7 +96,7 @@ ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root 
 ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root reset.yml
 
 
-sudo su -
+sudo su -i
 
 kubectl get pod --all-namespaces -o wide
 kubectl describe pod nginx-proxy-k8s-3 -n kube-system
@@ -118,7 +121,16 @@ kubectl get storageclasses
 sudo kubectl config current-context
 sudo kubectl config get-contexts
 
+On the Vagrant controller VM View the conbfiguration file and copy it.
+
 sudo kubectl config view --raw
+
+You should alread have a custom DNS record in your computer etc/host file to resolve IP to dns Like the below record
+
+192.168.56.101   k8swebsite.local
+
+
+
 
 #make local Dir on your host copy the config from host then change the IP address to Node IP
 mkdir -p ~/.kube

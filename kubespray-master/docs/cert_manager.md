@@ -34,7 +34,7 @@ To enable the Nginx Ingress controller as part of your Kubespray deployment, sim
 
 ```ini
 # Nginx ingress controller deployment
-ingress_nginx_enabled: true
+ingress_nginx_enabled: false
 ```
 
 For example, if you're using the Nginx ingress controller, you can secure the Prometheus ingress by adding the annotation `cert-manager.io/cluster-issuer: ca-issuer` and the `spec.tls` section to the `Ingress` resource definition.

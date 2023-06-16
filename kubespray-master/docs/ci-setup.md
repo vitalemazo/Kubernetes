@@ -146,7 +146,7 @@ upstream_dns_servers:
   - 1.0.0.1
 
 # Extensions
-ingress_nginx_enabled: True
+ingress_nginx_enabled: false
 helm_enabled: True
 cert_manager_enabled: True
 metrics_server_enabled: True
